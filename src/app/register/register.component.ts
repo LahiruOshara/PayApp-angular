@@ -11,20 +11,34 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  users: any[];
+  fullname: String;
+  address: String;
+  nic: String;
+  dob: any;
+  actype: String;
+  // user:any;
   constructor(private db: AngularFireDatabase) {
+
+
   }
 
   ngOnInit() {
-    this.getusers();
+    this.func();
+  }
+  onRegisterSubmit() {
+    console.log('submitted');
+      const user = {
+      fullName: this.fullname,
+      nic: this.nic,
+
+    };
+    return this.db.object('/users/' + user.nic).set(user);
   }
 
-  getusers() {
-    console.log('hello');
-    return this.db.object('/users').set({name: 'Bata'});
-//      console.log(this.users);
-
+  func() {
+    return this.db.object('/users/').set({name: ' jhghuags'});
   }
+
 
 }
 
