@@ -3,6 +3,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { Router } from '@angular/router';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { ValidateService } from '../services/validate.service';
+// import {AngularFireDatabaseModule } 'angularfire2/database';
 
 
 @Component({
