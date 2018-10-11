@@ -13,7 +13,6 @@ import {AngularFireModule } from 'angularfire2';
 import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule } from 'angularfire2/database';
 
-
 // services
 import { AuthenticationService } from './services/authentication.service';
 import { ValidateService } from './services/validate.service';
@@ -36,7 +35,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     FlashMessagesModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   providers: [AuthenticationService, ValidateService],
   bootstrap: [AppComponent]

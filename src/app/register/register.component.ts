@@ -17,13 +17,14 @@ export class RegisterComponent implements OnInit {
   dob: any;
   actype: String;
   // user:any;
-  constructor(private db: AngularFireDatabase) {
+  constructor(
+    private db: AngularFireDatabase
+    ) {
 
 
   }
 
   ngOnInit() {
-    
   }
   onRegisterSubmit() {
     console.log('submitted');
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
       nic: this.nic,
 
     };
-    return this.db.object('/users/' + user.nic).set(user);
+    // return this.db.
   }
 
 }

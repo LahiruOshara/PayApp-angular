@@ -1,120 +1,120 @@
 .center{
-    margin: auto;
-    width: 50%;
+  margin: auto;
+  width: 50%;
 }
 h1{
-  margin: 2% 30%;
+margin: 2% 30%;
 }
 
 .login {
-    margin: auto;
-    width: 50%;
-    border: 3px solid #008CBA;
-    padding: 10px;
-  }
-  
-  form{
-    width: 80%;
-  }
-  
-  /* Full-width inputs */
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #008CBA;
-    color: white;
-    padding: 14px 20px;
-    margin: 2% 30%;
-    border: none;
-    cursor: pointer;
-    width: 40%;
-  }
-  
-  /* Add a hover effect for buttons */
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  /* Extra style for the cancel button (red) */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
-  /* Center the avatar image inside this container */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-  }
-  
-  
-  /* Add padding to containers */
-  .container {
-    margin-left: 20%;
-    padding: 16px;
-  
-  }
-  
-  /* The "Forgot password" text */
+  margin: auto;
+  width: 50%;
+  border: 3px solid #008CBA;
+  padding: 10px;
+}
+
+form{
+  width: 80%;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #008CBA;
+  color: white;
+  padding: 14px 20px;
+  margin: 2% 30%;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra style for the cancel button (red) */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+
+/* Add padding to containers */
+.container {
+  margin-left: 20%;
+  padding: 16px;
+
+}
+
+/* The "Forgot password" text */
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 600px) {
   span.psw {
-    float: right;
-    padding-top: 16px;
+    display: block;
+    float: none;
   }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 600px) {
-    span.psw {
-      display: block;
-      float: none;
-    }
-    .cancelbtn {
-      width: 100%;
-    }
-    .column {
+  .cancelbtn {
     width: 100%;
   }
-  }
-  
   .column {
-      float: left;
-      width: 30%;
-      padding: 15px;
-  }
-  
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  .column2 {
+  width: 100%;
+}
+}
+
+.column {
     float: left;
-    width:40%;
+    width: 30%;
     padding: 15px;
-  }
-  
-  .row2:after {
+}
+
+.row:after {
   content: "";
   display: table;
   clear: both;
+}
+
+.column2 {
+  float: left;
+  width:40%;
+  padding: 15px;
+}
+
+.row2:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.column3 {
+  float: left;
+  width:10%;
   }
-  
-  .column3 {
-    float: left;
-    width:10%;
-    }
-  
-  .row3:after {
-  content: "";
-  display: table;
-  clear: both;
-  }
+
+.row3:after {
+content: "";
+display: table;
+clear: both;
+}
