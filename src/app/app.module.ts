@@ -11,7 +11,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 // firebase
 import {AngularFireModule } from 'angularfire2';
 import {environment} from '../environments/environment';
-import {AngularFireDatabaseModule } 'angularfire2/database';
+import {AngularFireDatabaseModule } from 'angularfire2/database';
 
 
 // services
