@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.func();
+    
   }
   onRegisterSubmit() {
     console.log('submitted');
@@ -34,11 +34,6 @@ export class RegisterComponent implements OnInit {
     };
     return this.db.object('/users/' + user.nic).set(user);
   }
-
-  func() {
-    return this.db.object('/users/').set({name: ' jhghuags'});
-  }
-
 
 }
 
