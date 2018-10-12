@@ -35,15 +35,17 @@ export class LoginComponent implements OnInit {
         return true;
       }
     
-      if (this.current_user.accountType === 'Customer' && this.f_password==this.current_user.password) {
+      else if (this.current_user.accountType === 'Customer' && this.f_password==this.current_user.password) {
         console.log("Customer")
-        //this.router.navigate(['cutomer']);
+        //this.router.navigate(['customer']);
         return true;
       }
-
-    // do the same to the other users
+    // do the same to the other user types
+      else{
+        console.log("Incorrect password")
+      }
     }else{
-      console.log("User not found")
+      console.log("Incorrect NIC")
     }
     });
   }
