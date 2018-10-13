@@ -20,13 +20,15 @@ import { ValidateService } from './services/validate.service';
 // components
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { ElecBillOfficerComponent } from './elec-bill-officer/elec-bill-officer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ElecBillOfficerComponent
   ],
   imports: [
     BrowserModule,

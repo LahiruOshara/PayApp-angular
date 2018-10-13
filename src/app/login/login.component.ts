@@ -54,6 +54,10 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['cutomer']);
     return true;
   }
+  if (users.accountType === 'elecBillOfficer') {
+    this.router.navigate(['elecBillOfficer']);
+    return true;
+  }
 
   }
 }

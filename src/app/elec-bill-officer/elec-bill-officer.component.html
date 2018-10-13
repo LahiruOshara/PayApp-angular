@@ -1,0 +1,216 @@
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+      <a class="navbar-brand" href="#">PayApp</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
+      
+      
+    </div>
+  </div>
+</nav>
+
+ 
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="reading">
+				
+				<form  #reading = "ngForm" (ngSubmit) = "onClickSubmit(reading.value)">
+					<h1>Meter Reading</h1>
+					<table>
+						<tr>
+
+							<td><label><b>Customer id</b></label></td>
+							<td colspan="3"><input type="text" name="id" placeholder="Customer Id"  class="add" title="Enter valide name" ngModel ></td>
+						</tr>
+            <tr>
+              <td><label><b>User Type</b></label></td>
+              <td>
+                <select name="type" class="add op" id="type" ngModel onchange ="show()" (change)="onChange($event.target.value)">
+                    <option value="domestic" class="">Domestic</option>
+                    <option value="G-1" class="">G-1</option>
+                    <option value="G-2"  >G-2</option>
+                    <option value="G-3" class="">G-3</option>
+                  </select>
+                </td>
+            </tr>
+          </table>
+          <table>
+						<tr id="ifNo">
+							<td><label><b>Meter reading</b></label></td>
+							<td> <input type="text" name="reading" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel ></td>
+							
+						</tr>
+          </table>
+
+            <div id="ifYes">
+              <table>
+              <tr>
+              <td><label><b>Peak</b></label></td>
+              <td> <input type="text" name="peak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+            
+              <tr >
+              <td><label><b>Day</b></label></td>
+              <td> <input type="text" name="day" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+            <tr >
+              <td><label><b>OffPeak</b></label></td>
+              <td> <input type="text" name="offpeak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+          </table>
+            </div>
+              <table>
+            
+
+						
+						<tr>
+							<td></td>
+							<button  class="btn1">CANCLE </button> 
+
+							<button type="submit" class="btn1" (click)="changeState1()">SUBMIT</button> 
+						</tr>
+						
+					</table>
+				</form>
+
+
+
+
+
+
+
+			</div>
+		</div>    
+	</div>
+</div>
+<div *ngIf="state1">
+  <div *ngIf="state2; then report1 else report2"></div>
+</div>
+
+<ng-template #report1>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <h1>Check before Submit</h1>
+      <span (click)="changeState1()" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label>Customer Name</label></td>
+          <td><label>: Akila Gunawardhana</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meater id</b></label></td>
+          <td><label><b>: {{id}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Customer Type</b></label></td>
+          <td><label><b>: {{type}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meter Reading</b></label></td>
+          <td><label><b>: {{val}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>No of Units</b></label></td>
+          <td><label><b>: 100</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Amount</b></label></td>
+          <td><label><b>: {{amount}} Rs</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Date</b></label></td>
+          <td><label><b>: {{date}}</b></label></td>
+        </tr>
+
+
+      </table>
+        
+      
+    </div>
+
+      <button type="button" (click)="changeState1()" class="btn1">Edit</button>
+      <button type="button"  (click)="save()" class="btn1">Submit</button>
+
+  </form>
+</div>
+</ng-template>
+
+
+
+
+<ng-template #report2>
+  <div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <h1>Check before Submit</h1>
+      <span (click)="changeState1()" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label>Customer Name</label></td>
+          <td><label>: Akila Gunawardhana</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meater id</b></label></td>
+          <td><label><b>: {{id}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Customer Type</b></label></td>
+          <td><label><b>: {{type}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Peak</b></label></td>
+          <td><label><b>: {{peak}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Day</b></label></td>
+          <td><label><b>: {{day}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Off Peak</b></label></td>
+          <td><label><b>: {{offpeak}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Amount</b></label></td>
+          <td><label><b>: {{amount}} Rs</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Date</b></label></td>
+          <td><label><b>: {{date}}</b></label></td>
+        </tr>
+
+
+      </table>
+        
+      
+    </div>
+
+      <button type="button" (click)="changeState1()" class="btn1">Edit</button>
+      <button type="button"  (click)="save()" class="btn1">Submit</button>
+
+  </form>
+</div>
+</ng-template>

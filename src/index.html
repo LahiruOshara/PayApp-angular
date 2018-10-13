@@ -5,8 +5,9 @@
   <title>PayappAngular</title>
   <base href="/">
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-
+  
+  <link href="assets/bootstrap-cerulean.min.css" rel="stylesheet">
+	<script src="assets/jquery.min.js"></script>
  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -16,5 +17,21 @@
 </head>
 <body>
   <app-root></app-root>
+
+  <script type="text/javascript">
+		function show() {
+
+			var e = document.getElementById("type");
+			var strUser = e.options[e.selectedIndex].text;
+			if(strUser=="G-2" || strUser=="G-3"){
+				document.getElementById("ifYes").style.display = "block";
+				document.getElementById("ifNo").style.display = "none";
+			}
+			else{
+				document.getElementById("ifNo").style.display = "block";
+				document.getElementById("ifYes").style.display = "none";
+			}
+		}
+	</script>
 </body>
 </html>
