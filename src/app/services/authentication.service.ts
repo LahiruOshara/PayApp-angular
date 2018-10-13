@@ -34,14 +34,12 @@ export class AuthenticationService {
     return this.http.get('users/profile', {headers: headers}) as Observable<ProfileResponse>;
   }
 
-  storeUserdata(token, user) {
+  storeUserdata(user) {
     // localStorage.setItem('id_token', token);
     // console.log(token);
-    sessionStorage.setItem('id_token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('type', user.accountType);
-    localStorage.setItem('username', user.username);
-    this.token = token;
+    sessionStorage.setItem('user', JSON.stringify(user));
+    // localStorage.setItem('type', user.accountType);
+    // localStorage.setItem('username', user.username);
     this.user = user;
   }
 
@@ -53,14 +51,13 @@ export class AuthenticationService {
   }
 
   logOut() {
-    this.token = null;
     this.user = null;
     localStorage.clear();
     sessionStorage.clear();
   }
 
   loggedIn() {
-    return !(sessionStorage.getItem('id_token') === null);
+    return !(sessionStorage.getItem('user') === null);
     // tokenNotExpired();
   }
 

@@ -16,6 +16,7 @@ import {AngularFireDatabaseModule } from 'angularfire2/database';
 // services
 import { AuthenticationService } from './services/authentication.service';
 import { ValidateService } from './services/validate.service';
+import { GuardService } from './services/guard.service';
 
 // components
 import { RegisterComponent } from './register/register.component';
@@ -39,7 +40,9 @@ import { HomeComponent } from './home/home.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [AuthenticationService, ValidateService],
+  providers: [AuthenticationService,
+    ValidateService,
+    GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
