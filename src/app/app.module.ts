@@ -20,6 +20,7 @@ import { ValidateService } from './services/validate.service';
 // components
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
