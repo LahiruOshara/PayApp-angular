@@ -4,9 +4,9 @@
           <h1>Login Here</h1>
           <form (submit)="onLoginSubmit()">
             <p>Username</p>
-            <input [(ngModel)]="nic" name="nic" type="text" placeholder="NIC number" required>
+            <input [(ngModel)]="f_nic" name="nic" type="text" placeholder="NIC number" required>
             <p>Password</p>
-            <input [(ngModel)]="password" name="password" type="password" placeholder="Password"  required>
+            <input [(ngModel)]="f_password" name="password" type="password" placeholder="Password"  required>
             <input type="submit"  value="Login">
           </form>
       </div>

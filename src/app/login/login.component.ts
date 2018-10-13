@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-/*import { AuthenticationService } from '../services/authentication.service';
-import { Router } from '@angular/router';
-import { FlashMessagesService} from 'angular2-flash-messages';
-import { ValidateService } from '../services/validate.service';*/
-// import {AngularFireDatabaseModule } 'angularfire2/database';
 
 
 @Component({
@@ -16,44 +11,42 @@ import { ValidateService } from '../services/validate.service';*/
 })
 export class LoginComponent implements OnInit {
 
-  nic: string;
-  password: string;
-  user: any;
-  accountType: string;
-  users: any;
+  f_nic: string;
+  f_password: string;
+  current_user:any;
 
   constructor(private db: AngularFireDatabase,
     private router: Router
     ) { }
   ngOnInit() {
-    this.onLoginSubmit();
-    console.log(this.users);
   }
 
   // on click
   onLoginSubmit() {
     console.log('here');
-    const users = {
-      nic: this.nic,
-      password: this.password,
-      accountType: this.accountType
-    };
     console.log('after');
 
-   // tslint:disable-next-line:no-unused-expression
-   // somehow get the user information
-   this.users = this.db.list('/users/' + this.nic);
-
-   // do the same to the other users
-   if (users.accountType === 'Admin') {
-    this.router.navigate(['admin']); // have to set the path in the app-routing.module
-    return true;
-  }
-
-  if (users.accountType === 'Customer') {
-    this.router.navigate(['cutomer']);
-    return true;
-  }
-
+   this.db.list('/user',ref=>ref.orderByChild("nic").equalTo(this.f_nic)).valueChanges().subscribe(x=>{
+    this.current_user= x[0];
+    if(this.current_user!=null){
+      if (this.current_user.accountType === 'Admin' && this.f_password==this.current_user.password) {
+        console.log("Admin");
+        //this.router.navigate(['admin']); // have to set the path in the app-routing.module
+        return true;
+      }
+    
+      else if (this.current_user.accountType === 'Customer' && this.f_password==this.current_user.password) {
+        console.log("Customer")
+        //this.router.navigate(['customer']);
+        return true;
+      }
+    // do the same to the other user types
+      else{
+        console.log("Incorrect password")
+      }
+    }else{
+      console.log("Incorrect NIC")
+    }
+    });
   }
 }
