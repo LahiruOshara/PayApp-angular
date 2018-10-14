@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit {
     if (this.current_user != null) {
       // saving to the session storage
       this.authService.storeUserdata(this.current_user);
+      console.log(this.current_user);
 
       // Decript & Validating Password
       const dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');

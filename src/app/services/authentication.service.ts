@@ -57,6 +57,7 @@ export class AuthenticationService {
   }
 
   loggedIn() {
+    // console.log(sessionStorage.getItem('user'));
     return !(sessionStorage.getItem('user') === null);
     // tokenNotExpired();
   }
