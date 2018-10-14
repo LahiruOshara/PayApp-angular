@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
-/*import { AuthenticationService } from '../services/authentication.service';
-import { Router } from '@angular/router';
 import { FlashMessagesService} from 'angular2-flash-messages';
-import { ValidateService } from '../services/validate.service';*/
-// import {AngularFireDatabaseModule } 'angularfire2/database';
+import { ValidateService } from '../services/validate.service';
+import {AuthenticationService} from '../services/authentication.service';
+import * as CryptoTS from 'crypto-ts';
+
 
 
 
@@ -17,40 +17,23 @@ import { ValidateService } from '../services/validate.service';*/
 })
 export class LoginComponent implements OnInit {
 
-  nic: string;
-  password: string;
-  user: any;
-  accountType: string;
-  users: any;
+  f_nic: string;
+  f_password: string;
+  current_user: any;
 
   constructor(private db: AngularFireDatabase,
-    private router: Router
+    private router: Router,
+    private messages: FlashMessagesService,
+    private validate: ValidateService,
+    private authService: AuthenticationService,
     ) { }
   ngOnInit() {
-    this.onLoginSubmit();
-    console.log(this.users);
   }
 
   // on click
   onLoginSubmit() {
-    console.log('here');
-    const users = {
-      nic: this.nic,
-      password: this.password,
-      accountType: this.accountType
-    };
-    console.log('after');
 
-   // tslint:disable-next-line:no-unused-expression
-   // somehow get the user information
-   this.users = this.db.list('/users/' + this.nic);
-
-   // do the same to the other users
-   if (users.accountType === 'Admin') {
-    this.router.navigate(['admin']); // have to set the path in the app-routing.module
-    return true;
-  }
-
+<<<<<<< HEAD
   if (users.accountType === 'Customer') {
     this.router.navigate(['cutomer']);
     return true;
@@ -59,6 +42,50 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['elecBillOfficer']);
     return true;
   }
+=======
+    if (this.validate.validateSignIn(this.f_nic, this.f_password)) {
+      this.messages.show( 'Enter Details', {
+        cssClass: 'alert-danger',
+        timeOut: 5000 });
+        console.log('Empty!!');
+      return false;
+    }
 
+   this.db.list('/user', ref => ref.orderByChild('nic').equalTo(this.f_nic)).valueChanges().subscribe(x => {
+    this.current_user = x[0];
+    if (this.current_user != null) {
+      // saving to the session storage
+      this.authService.storeUserdata(this.current_user);
+      console.log(this.current_user);
+
+      // Decript & Validating Password
+      const dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
+      const dec_userpass = dec_userpass_array.toString(CryptoTS.enc.Utf8);
+>>>>>>> 7c27166ee4b7f681dcd949a3f7213ba4409845a6
+
+      if (this.current_user.accountType === 'Admin' && this.f_password === dec_userpass) {
+        console.log('Admin');
+        this.router.navigate(['admin-home']); // have to set the path in the app-routing.module
+        return true;
+      } else if (this.current_user.accountType === 'Customer' && this.f_password === dec_userpass) {
+        console.log('Customer');
+        // this.router.navigate(['customer']);
+        return true;
+      } else {
+        this.messages.show( 'Incorrect password', {
+          cssClass: 'alert-danger',
+          timeOut: 5000 });
+          // console.log('Empty!!');
+          console.log('Incorrect password');
+        return false;
+      }
+    } else {
+      this.messages.show( 'Incorrect NIC', {
+        cssClass: 'alert-danger',
+        timeOut: 5000 });
+      return false;
+      // console.log('Incorrect NIC');
+    }
+    });
   }
 }
