@@ -27,9 +27,15 @@
   </li>
 
 </ul>
-<ul class="navbar-nav" style="margin-left:67%;">
+<ul class="navbar-nav" style="margin-left:75%;">
   <li class="nav-item" >
     <a *ngIf="!getAuthenticationService().loggedIn()"  routerLinkActive='active' routerLink="login" style="color:beige"><i class="fas fa-sign-in-alt" style="color:beige"></i>Log-in</a>
+  </li>
+</ul>
+
+<ul class="navbar-nav" style="margin-left:67%;">
+  <li class="nav-item" >
+    <a *ngIf="getAuthenticationService().loggedIn()"  routerLinkActive='active' href="#" style="color:beige" (click)="onLogoutClick()"><i class="fas fa-sign-in-alt" style="color:beige"></i>Log-out</a>
   </li>
 </ul>
 </nav>

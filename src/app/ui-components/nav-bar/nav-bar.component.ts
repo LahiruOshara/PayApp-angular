@@ -19,4 +19,12 @@ export class NavBarComponent implements OnInit {
     return this.authenticationService;
   }
 
+
+  onLogoutClick() {
+    this.authenticationService.logOut();
+    // this.messages.show('You are logged out', {cssClass: 'alert-success', timeout: 5000});
+    this.router.navigate(['']);
+    return false;
+  }
+
 }
