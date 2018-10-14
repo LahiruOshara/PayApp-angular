@@ -7,7 +7,7 @@ import * as firebase from 'firebase/app';
 import * as CryptoTS from 'crypto-ts';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { ValidateService } from '../services/validate.service';
- 
+
 
 
 @Component({
@@ -38,17 +38,15 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
- 
-    
-    
-    
   }
   onRegisterSubmit() {
 
+    // tslint:disable-next-line:max-line-length
     if (this.validate.validateRegister(this.firstName, this.middleName, this.lastName, this.accountType, this.address, this.mobileNo, this.nic, this.password ) ) {
       this.messages.show( 'Enter Details', {
         cssClass: 'alert-danger',
         timeOut: 5000 });
+        // tslint:disable-next-line:max-line-length
         console.log(this.firstName, this.middleName, this.lastName, this.accountType, this.address, this.mobileNo, this.nic, this.password );
       return false;
     }
@@ -56,7 +54,7 @@ export class RegisterComponent implements OnInit {
     console.log('submitted');
 
     // Password Encryption
-    var enc_password = CryptoTS.AES.encrypt(this.password, '#453%678[]#$%^&*%69827849').toString();
+    const enc_password = CryptoTS.AES.encrypt(this.password, '#453%678[]#$%^&*%69827849').toString();
 
     // Password Decrypt
     // var dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
@@ -65,7 +63,7 @@ export class RegisterComponent implements OnInit {
     // console.log(dec_userpass);
 
 
-    var user = this.db.list("user")
+    const user = this.db.list('user');
     user.push ({
       firstName: this.firstName,
       middleName: this.middleName,
@@ -79,7 +77,7 @@ export class RegisterComponent implements OnInit {
 
     });
 
-    
+
     // return this.db.
   }
 

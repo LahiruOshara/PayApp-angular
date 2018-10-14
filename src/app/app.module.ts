@@ -22,6 +22,7 @@ import { GuardService } from './services/guard.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
