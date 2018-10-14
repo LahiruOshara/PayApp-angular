@@ -21,6 +21,9 @@ import { ValidateService } from './services/validate.service';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ElecBillOfficerComponent } from './elec-bill-officer/elec-bill-officer.component';
+import { WaterBillOfficerComponent } from './water-bill-officer/water-bill-officer.component';
+import { PoliceOfficerComponent } from './police-officer/police-officer.component';
+import { TaxOfficerComponent } from './tax-officer/tax-officer.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import { ElecBillOfficerComponent } from './elec-bill-officer/elec-bill-officer.
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ElecBillOfficerComponent
+    ElecBillOfficerComponent,
+    WaterBillOfficerComponent,
+    PoliceOfficerComponent,
+    TaxOfficerComponent
   ],
   imports: [
     BrowserModule,

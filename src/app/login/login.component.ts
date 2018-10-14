@@ -9,6 +9,7 @@ import { ValidateService } from '../services/validate.service';*/
 // import {AngularFireDatabaseModule } 'angularfire2/database';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

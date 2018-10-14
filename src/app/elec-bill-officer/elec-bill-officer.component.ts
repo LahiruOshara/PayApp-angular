@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm} from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-elec-bill-officer',
@@ -9,12 +11,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class ElecBillOfficerComponent implements OnInit {
 
-  constructor() { 
-  var today = new Date();
-  var dd = today.getDate();
-  var mm = today.getMonth()+1;
-  var yyyy = today.getFullYear();
-  this.date = yyyy + '/' + mm + '/' + dd;
+  constructor(private db: AngularFireDatabase) { 
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1;
+    var yyyy = today.getFullYear();
+    this.date = yyyy + '/' + mm + '/' + dd;
   }
 
   id:string;
@@ -27,18 +29,23 @@ export class ElecBillOfficerComponent implements OnInit {
   peak:number;
   day:number;
   offpeak:number;
+  peakr:number;
+  dayr:number;
+  offpeakr:number;
+  obj:any;
 
-  state1=false;
+state1=false;
 state2=true;
 
-  calamount(){
-
-  }
+  
   ngOnInit() {
+
   }
 
   cal(){
+
     if(this.type=="domestic"){
+
         if(this.units<=60){
           if(this.units<=30){
             this.amount = (this.units*2.50)+30; 
@@ -51,12 +58,15 @@ state2=true;
           this.amount = ((60*7.85)+(this.units-60)*10.00)+90;
         }
         else if(this.units<=120){
+        
+
           this.amount = ((60*7.85)+(30*10.00)+(this.units-90)*27.75)+480;
         }
         else if(this.units<=180){
           this.amount = ((60*7.85)+(30*10.00)+(30*27.75)+(this.units-120)*32.00)+480;
         }
         else if(this.units>180){
+
           this.amount = ((60*7.85)+(30*10.00)+(30*27.75)+(30*32.00)+(this.units-120)*45.00)+540;
         }
         
@@ -75,22 +85,50 @@ state2=true;
     else if(this.type=="G-3"){
       this.amount=(this.peak*25.50)+(this.day*20.70)+(this.offpeak*14.35)+4000;
     }
+
   }
 
 
+
+
   onClickSubmit(data) {
+    
+  
     this.id=data.id;
     this.type=data.type;
     if(this.type=="G-2" || this.type=="G-3"){
-      this.peak=parseInt(data.peak);
-      this.day=parseInt(data.day);
-      this.offpeak=parseInt(data.offpeak);
+      this.peakr=parseInt(data.peak);
+      this.dayr=parseInt(data.day);
+      this.offpeakr=parseInt(data.offpeak);
+      var users;
+      users = this.db.list('/readings/'+this.id);
+        users.snapshotChanges().subscribe(item =>{
+          this.peak=this.peakr-parseInt(item[4].payload.node_.value_);
+          this.day=this.dayr -parseInt(item[2].payload.node_.value_);
+          this.offpeak=this.offpeakr-parseInt(item[3].payload.node_.value_);
+        });
     }
     else{
       this.val=parseInt(data.reading);
+      var users;
+      users = this.db.list('/readings/'+this.id);
+      users.snapshotChanges().subscribe(item =>{
+        this.units=this.val-parseInt(item[3].payload.node_.value_);
+        
+      });
+      }
+      
+    this.cal();
+      
+
+      this.changeState1();
+
+      
     }
-      this.cal();
-    }
+
+
+
+
 
 changeState1(){
   this.changeState2();
@@ -105,6 +143,8 @@ changeState2(){
   }
 }
 
+
+
 onChange(deviceValue) {
     this.type=deviceValue;
 }
@@ -112,15 +152,28 @@ onChange(deviceValue) {
 
 
   save(){
+    if(this.type=="G-2" || this.type=="G-3"){
+      this.obj={
+        amount:this.amount,
+        peakr:this.peakr,
+        dayr:this.dayr,
+        offpeakr:this.offpeakr,
+        date:this.date
+      }
+    }
+    else{
+    this.obj={
+        amount:this.amount,
+        units:this.units,
+        val:this.val,
+        date:this.date
+      }
+      
+    }
     this.changeState1();
-    
+    this.db.object('readings/' + this.id).set(this.obj);
 
   }
  
 
- 
-
-
-
-
-  }
+}
