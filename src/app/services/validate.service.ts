@@ -6,13 +6,14 @@ export class ValidateService {
   constructor() { }
 
   // validate form fields
-  validateRegister(user) {
+  validateRegister(firstName, middleName, lastName, accountType, address, mobileNo, nic, password ) {
     // tslint:disable-next-line:max-line-length
-    if (user.firstName === undefined || user.middleName === undefined || user.lastName === undefined
-      || user.email === undefined || user.username === undefined || user.password === undefined) {
-      return false;
-    } else {
+    if (firstName === undefined || middleName === undefined || lastName === undefined
+      || nic === undefined || password === undefined || accountType === undefined 
+      || address === undefined || mobileNo === undefined ) {
       return true;
+    } else {
+      return false;
     }
   }
 

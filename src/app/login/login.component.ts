@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { ValidateService } from '../services/validate.service';
 import {AuthenticationService} from '../services/authentication.service';
+import * as CryptoTS from 'crypto-ts';
 
 
 
@@ -45,11 +46,15 @@ export class LoginComponent implements OnInit {
       // saving to the session storage
       this.authService.storeUserdata(this.current_user);
 
-      if (this.current_user.accountType === 'Admin' && this.f_password === this.current_user.password) {
+      //Decript & Validating Password
+      var dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
+      var dec_userpass = dec_userpass_array.toString(CryptoTS.enc.Utf8);
+
+      if (this.current_user.accountType === 'Admin' && this.f_password === dec_userpass) {
         console.log('Admin');
         // this.router.navigate(['admin']); // have to set the path in the app-routing.module
         return true;
-      } else if (this.current_user.accountType === 'Customer' && this.f_password === this.current_user.password) {
+      } else if (this.current_user.accountType === 'Customer' && this.f_password === dec_userpass) {
         console.log('Customer');
         // this.router.navigate(['customer']);
         return true;
