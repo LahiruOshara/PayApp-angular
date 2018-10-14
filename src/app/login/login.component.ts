@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
 
       if (this.current_user.accountType === 'Admin' && this.f_password === dec_userpass) {
         console.log('Admin');
-        // this.router.navigate(['admin']); // have to set the path in the app-routing.module
+        this.router.navigate(['admin-home']); // have to set the path in the app-routing.module
         return true;
       } else if (this.current_user.accountType === 'Customer' && this.f_password === dec_userpass) {
         console.log('Customer');

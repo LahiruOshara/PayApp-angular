@@ -23,6 +23,7 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
     RegisterComponent,
     HomeComponent,
     NavBarComponent,
+    AdminHomeComponent,
   ],
   imports: [
     BrowserModule,
