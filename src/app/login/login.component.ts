@@ -33,8 +33,6 @@ export class LoginComponent implements OnInit {
   // on click
   onLoginSubmit() {
 
-
-
     if (this.validate.validateSignIn(this.f_nic, this.f_password)) {
       this.messages.show( 'Enter Details', {
         cssClass: 'alert-danger',
@@ -62,6 +60,10 @@ export class LoginComponent implements OnInit {
       } else if (this.current_user.accountType === 'Customer' && this.f_password === dec_userpass) {
         console.log('Customer');
         // this.router.navigate(['customer']);
+        this.router.navigate(['cutomer']);
+        return true;
+      } else if (this.current_user.accountType === 'elecBillOfficer' && this.f_password === dec_userpass) {
+        this.router.navigate(['elecBillOfficer']);
         return true;
       } else {
         this.messages.show( 'Incorrect password', {

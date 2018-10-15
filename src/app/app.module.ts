@@ -46,6 +46,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     NavBarComponent,
     AdminHomeComponent
 
+
   ],
   imports: [
     BrowserModule,
