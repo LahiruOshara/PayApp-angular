@@ -65,6 +65,15 @@ export class LoginComponent implements OnInit {
       } else if (this.current_user.accountType === 'Elec. Bill Officer' && this.f_password === dec_userpass) {
         this.router.navigate(['elecBillOfficer']);
         return true;
+      } else if (this.current_user.accountType === 'Water Bill Officer' && this.f_password === dec_userpass) {
+        this.router.navigate(['waterBillOfficer']);
+        return true;
+      } else if (this.current_user.accountType === 'Tax Officer' && this.f_password === dec_userpass) {
+        this.router.navigate(['tax-officer']);
+        return true;
+      } else if (this.current_user.accountType === 'Police Officer' && this.f_password === dec_userpass) {
+        this.router.navigate(['polic-officer']);
+        return true;
       } else {
         this.messages.show( 'Incorrect password', {
           cssClass: 'alert-danger',
