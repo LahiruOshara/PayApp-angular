@@ -8,11 +8,11 @@
 					<table>
 						<tr>
 
-							<td><label><b>Customer id</b></label></td>
+							<td><label>Customer id</label></td>
 							<td colspan="3"><input type="text" name="id" placeholder="Customer Id"  class="add" title="Enter valide name" ngModel ></td>
 						</tr>
             <tr>
-              <td><label><b>User Type</b></label></td>
+              <td><label>User Type</label></td>
               <td>
                 <select name="type" class="add op" id="type" ngModel onchange ="show()" (change)="onChange($event.target.value)">
                     <option value="domestic" class="">Domestic</option>
@@ -34,18 +34,18 @@
             <div id="ifYes">
               <table>
               <tr>
-              <td><label><b>Peak</b></label></td>
+              <td><label>Peak</label></td>
               <td> <input type="text" name="peak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
               
             </tr>
             
               <tr >
-              <td><label><b>Day</b></label></td>
+              <td><label>Day</label></td>
               <td> <input type="text" name="day" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
               
             </tr>
             <tr >
-              <td><label><b>OffPeak</b></label></td>
+              <td><label>OffPeak</label></td>
               <td> <input type="text" name="offpeak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
               
             </tr>
@@ -91,32 +91,32 @@
     <div class="container">
       <table>
         <tr>
-          <td><label>Customer Name</label></td>
+          <td><label><b>Customer Name</b></label></td>
           <td><label>: Akila Gunawardhana</label></td>
         </tr>
         <tr>
           <td><label><b>Meater id</b></label></td>
-          <td><label><b>: {{id}}</b></label></td>
+          <td><label>: {{id}}</label></td>
         </tr>
         <tr>
           <td><label><b>Customer Type</b></label></td>
-          <td><label><b>: {{type}}</b></label></td>
+          <td><label>: {{type}}</label></td>
         </tr>
         <tr>
           <td><label><b>Meter Reading</b></label></td>
-          <td><label><b>: {{val}}</b></label></td>
+          <td><label>: {{val}}</label></td>
         </tr>
         <tr>
           <td><label><b>No of Units</b></label></td>
-          <td><label><b>: {{units}}</b></label></td>
+          <td><label>: {{units}}</label></td>
         </tr>
         <tr>
           <td><label><b>Amount</b></label></td>
-          <td><label><b>: {{amount}} Rs</b></label></td>
+          <td><label>: {{amount}} Rs</label></td>
         </tr>
         <tr>
           <td><label><b>Date</b></label></td>
-          <td><label><b>: {{date}}</b></label></td>
+          <td><label>: {{date}}</label></td>
         </tr>
 
 

@@ -48,15 +48,16 @@ state2 = true;
     if (this.type === 'domestic') {
 
         if (this.units <= 60) {
+        console.log(this.type);
           if (this.units <= 30) {
             this.amount = (this.units * 2.50) + 30;
           } else {
             this.amount = ((30 * 2.50) + (this.units - 30) * 4.85) + 60;
           }
         } else if (this.units <= 90) {
+
           this.amount = ((60 * 7.85) + (this.units - 60) * 10.00) + 90;
         } else if (this.units <= 120) {
-
 
           this.amount = ((60 * 7.85) + (30 * 10.00) + (this.units - 90) * 27.75) + 480;
         } else if (this.units <= 180) {
@@ -65,6 +66,7 @@ state2 = true;
 
           this.amount = ((60 * 7.85) + (30 * 10.00) + (30 * 27.75) + (30 * 32.00) + (this.units - 120) * 45.00) + 540;
         }
+        
 
     } else if (this.type === 'G-1') {
       if (this.units <= 300) {
@@ -115,6 +117,8 @@ state2 = true;
         this.units = this.val - parseInt(item[3].payload.node_.value_);
 
       });
+      
+
       }
 
     this.cal();

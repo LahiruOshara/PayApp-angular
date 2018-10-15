@@ -43,7 +43,7 @@ export class TaxOfficerComponent implements OnInit {
         discription:this.discription,
         date:this.date,
       }
-      this.db.object('fine/' + this.nic).set(obj);
+      this.db.object('tax/' + this.nic).set(obj);
 
     }
 
