@@ -42,11 +42,11 @@ export class NavBarComponent implements OnInit {
       return true;
     }
     if (type === 'Tax Officer') {
-      this.router.navigate(['admin-home']);
+      this.router.navigate(['tax-officer']);
       return true;
     }
     if (type === 'Police Officer') {
-      this.router.navigate(['admin-home']);
+      this.router.navigate(['polic-officer']);
       return true;
     }
     if (type === 'Water Bill Officer') {
