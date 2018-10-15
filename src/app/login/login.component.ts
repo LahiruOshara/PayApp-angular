@@ -33,16 +33,8 @@ export class LoginComponent implements OnInit {
   // on click
   onLoginSubmit() {
 
-<<<<<<< HEAD
-  if (users.accountType === 'Customer') {
-    this.router.navigate(['cutomer']);
-    return true;
-  }
-  if (users.accountType === 'elecBillOfficer') {
-    this.router.navigate(['elecBillOfficer']);
-    return true;
-  }
-=======
+
+
     if (this.validate.validateSignIn(this.f_nic, this.f_password)) {
       this.messages.show( 'Enter Details', {
         cssClass: 'alert-danger',
@@ -61,7 +53,7 @@ export class LoginComponent implements OnInit {
       // Decript & Validating Password
       const dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
       const dec_userpass = dec_userpass_array.toString(CryptoTS.enc.Utf8);
->>>>>>> 7c27166ee4b7f681dcd949a3f7213ba4409845a6
+
 
       if (this.current_user.accountType === 'Admin' && this.f_password === dec_userpass) {
         console.log('Admin');

@@ -15,6 +15,7 @@ import { ValidateService } from '../services/validate.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   firstName: String;
   middleName: String;

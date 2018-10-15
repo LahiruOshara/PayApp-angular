@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as firebase from 'firebase/app';
+
 
 @Component({
   selector: 'app-water-bill-officer',
@@ -15,7 +18,7 @@ export class WaterBillOfficerComponent implements OnInit {
   amount:number;
   date:string;
 	
-  constructor() { 
+  constructor(private db: AngularFireDatabase) { 
   	var today = new Date();
   var dd = today.getDate();
   var mm = today.getMonth()+1;
@@ -29,6 +32,12 @@ export class WaterBillOfficerComponent implements OnInit {
    onClickSubmit(data) {
     this.id=data.id;
     this.val=parseInt(data.reading);
+    var users;
+    users = this.db.list('/Waterreadings/'+this.id);
+    users.snapshotChanges().subscribe(item =>{
+        //this.units=this.val-parseInt(item[3].payload.node_.value_);
+      });
+
     this.cal();
     this.changeState1();
    }
@@ -40,7 +49,13 @@ export class WaterBillOfficerComponent implements OnInit {
 
     }
     save(){
-    
+      var obj={
+        val:this.val,
+        amount:this.amount,
+        date:this.date,
+      }
+      this.db.object('Waterreadings/' + this.id).set(obj);
+
     }
 
 
