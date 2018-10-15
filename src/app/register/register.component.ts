@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import * as CryptoTS from 'crypto-ts';
 import { FlashMessagesService} from 'angular2-flash-messages';
 import { ValidateService } from '../services/validate.service';
+import { Router } from '@angular/router';
 
 
 
@@ -32,6 +33,7 @@ export class RegisterComponent implements OnInit {
     private db: AngularFireDatabase,
     private messages: FlashMessagesService,
     private validate: ValidateService,
+    private router: Router,
     ) {
 
 
@@ -76,7 +78,11 @@ export class RegisterComponent implements OnInit {
       password: enc_password
 
     });
-
+    this.messages.show( 'User Registerd', {
+      cssClass: 'alert-success',
+      timeOut: 5000 });
+    // this.router.navigate(['']);
+      return true;
 
     // return this.db.
   }

@@ -30,6 +30,7 @@ import { TaxOfficerComponent } from './tax-officer/tax-officer.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { CustomerHomeComponent } from './customer-home/customer-home.component';
 
 
 
@@ -45,6 +46,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
     HomeComponent,
     NavBarComponent,
     AdminHomeComponent,
+    CustomerHomeComponent,
 
   ],
   imports: [

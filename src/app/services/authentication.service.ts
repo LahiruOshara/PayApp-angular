@@ -38,7 +38,7 @@ export class AuthenticationService {
     // localStorage.setItem('id_token', token);
     // console.log(token);
     sessionStorage.setItem('user', JSON.stringify(user));
-    // localStorage.setItem('type', user.accountType);
+    sessionStorage.setItem('type', user.accountType);
     // localStorage.setItem('username', user.username);
     this.user = user;
   }
@@ -63,7 +63,7 @@ export class AuthenticationService {
   }
 
   returnType() {
-    return (localStorage.getItem('type'));
+    return (sessionStorage.getItem('type'));
   }
 }
 

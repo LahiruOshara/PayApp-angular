@@ -27,4 +27,34 @@ export class NavBarComponent implements OnInit {
     return false;
   }
 
+  onClickHome() {
+    const type = this.authenticationService.returnType();
+    if (type === 'Admin') {
+      this.router.navigate(['admin-home']);
+      return true;
+    }
+    if (type === 'Customer') {
+      this.router.navigate(['customer']);
+      return true;
+    }
+    if (type === 'Elec. Bill Officer') {
+      this.router.navigate(['elecBillOfficer']);
+      return true;
+    }
+    if (type === 'Tax Officer') {
+      this.router.navigate(['admin-home']);
+      return true;
+    }
+    if (type === 'Police Officer') {
+      this.router.navigate(['admin-home']);
+      return true;
+    }
+    if (type === 'Water Bill Officer') {
+      this.router.navigate(['waterBillOfficer']);
+      return true;
+    } else {
+      this.router.navigate(['']);
+      return false;
+    }
+  }
 }

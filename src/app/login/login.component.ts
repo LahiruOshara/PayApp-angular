@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     if (this.current_user != null) {
       // saving to the session storage
       this.authService.storeUserdata(this.current_user);
-      console.log(this.current_user);
+      // console.log(this.current_user);
 
       // Decript & Validating Password
       const dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
@@ -59,9 +59,9 @@ export class LoginComponent implements OnInit {
       } else if (this.current_user.accountType === 'Customer' && this.f_password === dec_userpass) {
         console.log('Customer');
         // this.router.navigate(['customer']);
-        this.router.navigate(['cutomer']);
+        this.router.navigate(['customer']);
         return true;
-      } else if (this.current_user.accountType === 'elecBillOfficer' && this.f_password === dec_userpass) {
+      } else if (this.current_user.accountType === 'Elec. Bill Officer' && this.f_password === dec_userpass) {
         this.router.navigate(['elecBillOfficer']);
         return true;
       } else {

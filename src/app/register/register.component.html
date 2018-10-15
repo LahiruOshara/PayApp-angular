@@ -20,6 +20,9 @@
       <select [(ngModel)] = "accountType" class="form-control" name="accountType">
         <option value="Admin">Administrator</option>
         <option value="Customer">Customer</option>
+        <option value="Elec. Bill Officer">Elec. Bill Officer</option>
+        <option value="Tax Officer">Tax Officer</option>
+        <option value="Police Officer">Police Officer</option>
       </select>
     </div>
     <div class="form-group">
@@ -31,7 +34,7 @@
       <input [(ngModel)]="mobileNo" name='mobileNo' class="form-control" type="text" placeholder="Mobile No" required>
     </div>
     <div class="form-group">
-      <label for="email">Mobile No:</label>
+      <label for="email">Email:</label>
       <input [(ngModel)]="email" name='email' class="form-control" type="email" placeholder="Email" required>
     </div>
     <div class="form-group">

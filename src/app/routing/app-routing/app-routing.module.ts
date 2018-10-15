@@ -8,6 +8,7 @@ import {WaterBillOfficerComponent} from '../../water-bill-officer/water-bill-off
 import {HomeComponent} from '../../home/home.component';
 import { GuardService } from '../../../app/services/guard.service'; // to guard the links
 import {AdminHomeComponent} from '../../admin-home/admin-home.component';
+import {CustomerHomeComponent} from '../../customer-home/customer-home.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'admin-home', component: AdminHomeComponent, canActivate: [GuardService]},
   {path: 'elecBillOfficer', component: ElecBillOfficerComponent },
-  {path: 'waterBillOfficer', component: WaterBillOfficerComponent }
+  {path: 'waterBillOfficer', component: WaterBillOfficerComponent },
+  {path: 'customer', component: CustomerHomeComponent}
   // to guard links add the path like this--->>>
   //  {path: 'admin', component: AdminComponent, canActivate: [GuardService]},
 ];
