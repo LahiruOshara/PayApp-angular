@@ -97,15 +97,20 @@ state2 = true;
       let users;
       users = this.db.list('/readings/' + this.id);
         users.snapshotChanges().subscribe(item => {
+          // tslint:disable-next-line:radix
           this.peak = this.peakr - parseInt(item[4].payload.node_.value_);
+          // tslint:disable-next-line:radix
           this.day = this.dayr - parseInt(item[2].payload.node_.value_);
+          // tslint:disable-next-line:radix
           this.offpeak = this.offpeakr - parseInt(item[3].payload.node_.value_);
         });
     } else {
+      // tslint:disable-next-line:radix
       this.val = parseInt(data.reading);
       let users;
       users = this.db.list('/readings/' + this.id);
       users.snapshotChanges().subscribe(item => {
+        // tslint:disable-next-line:radix
         this.units = this.val - parseInt(item[3].payload.node_.value_);
 
       });
