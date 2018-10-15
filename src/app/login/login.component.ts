@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       const dec_userpass_array  = CryptoTS.AES.decrypt(this.current_user.password, '#453%678[]#$%^&*%69827849');
       const dec_userpass = dec_userpass_array.toString(CryptoTS.enc.Utf8);
 
+
       if (this.current_user.accountType === 'Admin' && this.f_password === dec_userpass) {
         console.log('Admin');
         this.router.navigate(['admin-home']); // have to set the path in the app-routing.module

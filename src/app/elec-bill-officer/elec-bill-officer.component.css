@@ -69,18 +69,6 @@
     margin-top: 100px;
 }
 
-.navbar-nav{
-    margin: 0px 30px;
-}
-.navbar{
-    border-radius: 0px;
-}
-nav{
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-    transition: 1s;
-}
 
 
 

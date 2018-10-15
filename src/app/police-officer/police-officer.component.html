@@ -1,3 +1,84 @@
-<p>
-  police-officer works!
-</p>
+
+ 
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="reading">
+				
+				<form  #reading = "ngForm" (ngSubmit) = "onClickSubmit(reading.value)">
+					<h1>Issue Fine Bill</h1>
+					<table>
+						<tr>
+
+							<td><label><b>Driving Licence No</b></label></td>
+							<td colspan="3"><input type="text" name="id" placeholder="Customer Id"  class="add" title="Licence No" ngModel ></td>
+						</tr>
+   
+         
+						<tr>
+							<td><label><b>Amount</b></label></td>
+							<td> <input type="text" name="amount" placeholder="Meter Reading"  class="add"  title="Enter amount" ngModel ></td>
+							
+						</tr>
+            <tr>
+              <td><label><b>Discription</b></label></td>
+              <td> <input type="text" name="discription" placeholder="Meter Reading"  class="add"  title="Enter discription" ngModel ></td>
+              
+            </tr>
+						<tr>
+							<td></td>
+							<button  class="btn1">CANCLE </button> 
+
+							<button type="submit" class="btn1">SUBMIT</button> 
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>    
+	</div>
+</div>
+
+
+<div *ngIf="state1">
+	<div id="id01" class="modal">
+  
+  <form class="modal-content animate" >
+    <div class="imgcontainer">
+      <h1>Check before Submit</h1>
+      <span (click)="changeState1()" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label><b>Licence No:</b></label></td>
+          <td><label><b>: {{id}}</b></label></td>
+        </tr>
+      
+        <tr>
+          <td><label><b>Amount</b></label></td>
+          <td><label><b>: {{amount}} Rs</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Discription</b></label></td>
+          <td><label><b>: {{discription}} Rs</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Date</b></label></td>
+          <td><label><b>: {{date}}</b></label></td>
+        </tr>
+
+
+      </table>
+        
+      
+    </div>
+
+      <button type="button" (click)="changeState1()" class="btn1">Edit</button>
+      <button type="button"  (click)="save()" class="btn1">Submit</button>
+
+  </form>
+</div>
+</div>
+
