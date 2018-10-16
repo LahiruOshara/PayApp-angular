@@ -16,10 +16,22 @@ import {AngularFireDatabaseModule } from 'angularfire2/database';
 // services
 import { AuthenticationService } from './services/authentication.service';
 import { ValidateService } from './services/validate.service';
+import { GuardService } from './services/guard.service';
 
 // components
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+
+import { ElecBillOfficerComponent } from './elec-bill-officer/elec-bill-officer.component';
+import { WaterBillOfficerComponent } from './water-bill-officer/water-bill-officer.component';
+import { PoliceOfficerComponent } from './police-officer/police-officer.component';
+import { TaxOfficerComponent } from './tax-officer/tax-officer.component';
+
+import { HomeComponent } from './home/home.component';
+import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { CustomerHomeComponent } from './customer-home/customer-home.component';
+
 
 
 @NgModule({
@@ -27,6 +39,15 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ElecBillOfficerComponent,
+    WaterBillOfficerComponent,
+    PoliceOfficerComponent,
+    TaxOfficerComponent,
+    HomeComponent,
+    NavBarComponent,
+    AdminHomeComponent,
+    CustomerHomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +58,9 @@ import { LoginComponent } from './login/login.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
   ],
-  providers: [AuthenticationService, ValidateService],
+  providers: [AuthenticationService,
+    ValidateService,
+    GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

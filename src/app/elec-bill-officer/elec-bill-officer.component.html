@@ -1,0 +1,193 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="reading">
+				
+				<form  #reading = "ngForm" (ngSubmit) = "onClickSubmit(reading.value)">
+					<h1>Meter Reading</h1>
+					<table>
+						<tr>
+
+							<td><label>Customer id</label></td>
+							<td colspan="3"><input type="text" name="id" placeholder="Customer Id"  class="add" title="Enter valide name" ngModel ></td>
+						</tr>
+            <tr>
+              <td><label>User Type</label></td>
+              <td>
+                <select name="type" class="add op" id="type" ngModel onchange ="show()" (change)="onChange($event.target.value)">
+                    <option value="domestic" class="">Domestic</option>
+                    <option value="G-1" class="">G-1</option>
+                    <option value="G-2"  >G-2</option>
+                    <option value="G-3" class="">G-3</option>
+                  </select>
+                </td>
+            </tr>
+          </table>
+          <table>
+						<tr id="ifNo">
+							<td><label><b>Meter reading</b></label></td>
+							<td> <input type="text" name="reading" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel ></td>
+							
+						</tr>
+          </table>
+
+            <div id="ifYes">
+              <table>
+              <tr>
+              <td><label>Peak</label></td>
+              <td> <input type="text" name="peak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+            
+              <tr >
+              <td><label>Day</label></td>
+              <td> <input type="text" name="day" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+            <tr >
+              <td><label>OffPeak</label></td>
+              <td> <input type="text" name="offpeak" placeholder="Meter Reading"  class="add"  title="Enter valide name" ngModel></td>
+              
+            </tr>
+          </table>
+            </div>
+              <table>
+            
+
+						
+						<tr>
+							<td></td>
+							<button  class="btn1">CANCLE </button> 
+
+							<button type="submit" class="btn1" (click)="cal()">SUBMIT</button> 
+						</tr>
+						
+					</table>
+				</form>
+
+
+
+
+
+
+
+			</div>
+		</div>    
+	</div>
+</div>
+<div *ngIf="state1">
+  <div *ngIf="state2; then report1 else report2"></div>
+</div>
+
+<ng-template #report1>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <h1>Check before Submit</h1>
+      <span (click)="changeState1()" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label><b>Customer Name</b></label></td>
+          <td><label>: Akila Gunawardhana</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meater id</b></label></td>
+          <td><label>: {{id}}</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Customer Type</b></label></td>
+          <td><label>: {{type}}</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meter Reading</b></label></td>
+          <td><label>: {{val}}</label></td>
+        </tr>
+        <tr>
+          <td><label><b>No of Units</b></label></td>
+          <td><label>: {{units}}</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Amount</b></label></td>
+          <td><label>: {{amount}} Rs</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Date</b></label></td>
+          <td><label>: {{date}}</label></td>
+        </tr>
+
+
+      </table>
+        
+      
+    </div>
+
+      <button type="button" (click)="changeState1()" class="btn1">Edit</button>
+      <button type="button"  (click)="save()" class="btn1">Submit</button>
+
+  </form>
+</div>
+</ng-template>
+
+
+
+
+<ng-template #report2>
+  <div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php">
+    <div class="imgcontainer">
+      <h1>Check before Submit</h1>
+      <span (click)="changeState1()" class="close" title="Close Modal">&times;</span>
+    </div>
+
+    <div class="container">
+      <table>
+        <tr>
+          <td><label>Customer Name</label></td>
+          <td><label>: Akila Gunawardhana</label></td>
+        </tr>
+        <tr>
+          <td><label><b>Meater id</b></label></td>
+          <td><label><b>: {{id}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Customer Type</b></label></td>
+          <td><label><b>: {{type}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Peak</b></label></td>
+          <td><label><b>: {{peakr}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Day</b></label></td>
+          <td><label><b>: {{dayr}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Off Peak</b></label></td>
+          <td><label><b>: {{offpeakr}}</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Amount</b></label></td>
+          <td><label><b>: {{amount}} Rs</b></label></td>
+        </tr>
+        <tr>
+          <td><label><b>Date</b></label></td>
+          <td><label><b>: {{date}}</b></label></td>
+        </tr>
+
+
+      </table>
+        
+      
+    </div>
+
+      <button type="button" (click)="changeState1()" class="btn1">Edit</button>
+      <button type="button"  (click)="save()" class="btn1">Submit</button>
+
+  </form>
+</div>
+</ng-template>
