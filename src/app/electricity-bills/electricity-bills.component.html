@@ -1,11 +1,11 @@
 <div class="container-fluid" style="padding:0px;">
   <mat-nav-list>
     <h3 mat-subheader>Electricity Bills</h3>
-    <mat-list-item *ngFor="let folder of folders">
+    <mat-list-item *ngFor="let bill of bills">
       <mat-icon svgIcon="thumbs-up"></mat-icon>
-      <h4 mat-line>Bill ID: {{folder.id}}</h4>
-      <p mat-line> Due Date: {{folder.updated | date}} </p>
-      <h4 mat-line>Amount:{{folder.amount}}</h4>
+      <h4 mat-line>Bill ID: {{bill.id}}</h4>
+      <p mat-line> Due Date: {{bill.updated | date}} </p>
+      <h4 mat-line>Amount:{{bill.amount}}</h4>
     </mat-list-item>
   </mat-nav-list>
 </div>
