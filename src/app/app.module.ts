@@ -7,6 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './routing/app-routing/app-routing.module';
 import { AppComponent } from './app.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+
 
 // firebase
 import {AngularFireModule } from 'angularfire2';
@@ -31,6 +35,8 @@ import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './ui-components/nav-bar/nav-bar.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { CustomerHomeComponent } from './customer-home/customer-home.component';
+import { ElectricityBillsComponent } from './electricity-bills/electricity-bills.component';
+import { PayBillsComponent } from './pay-bills/pay-bills.component';
 
 
 
@@ -47,6 +53,8 @@ import { CustomerHomeComponent } from './customer-home/customer-home.component';
     NavBarComponent,
     AdminHomeComponent,
     CustomerHomeComponent,
+    ElectricityBillsComponent,
+    PayBillsComponent,
 
   ],
   imports: [
@@ -57,6 +65,10 @@ import { CustomerHomeComponent } from './customer-home/customer-home.component';
     FlashMessagesModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatIconModule
+
   ],
   providers: [AuthenticationService,
     ValidateService,
