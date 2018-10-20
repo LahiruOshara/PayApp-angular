@@ -14,8 +14,6 @@ import {AdminHomeComponent} from '../../admin-home/admin-home.component';
 import {CustomerHomeComponent} from '../../customer-home/customer-home.component';
 import { PoliceOfficerComponent} from '../../police-officer/police-officer.component';
 import {TaxOfficerComponent} from '../../tax-officer/tax-officer.component';
-import {ElectricityBillsComponent} from '../../electricity-bills/electricity-bills.component';
-import {PayBillsComponent} from '../../pay-bills/pay-bills.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent },
@@ -30,9 +28,7 @@ const routes: Routes = [
   {path: 'waterBillOfficer', component: WaterBillOfficerComponent },
   {path: 'customer', component: CustomerHomeComponent},
   {path: 'polic-officer', component: PoliceOfficerComponent},
-  {path: 'tax-officer', component: TaxOfficerComponent},
-  {path: 'pay-bills',component:PayBillsComponent},
-  {path: 'electricity-bills', component:ElectricityBillsComponent}
+  {path: 'tax-officer', component: TaxOfficerComponent}
   // to guard links add the path like this--->>>
   //  {path: 'admin', component: AdminComponent, canActivate: [GuardService]},
 
